@@ -1,4 +1,4 @@
-package com.example.notes.ui.theme
+package com.example.notes.presentaion.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -11,15 +11,18 @@ private val DarkColorPalette = darkColors(
     primary = Primary200,
     primaryVariant = Primary700,
     secondary = Teal200,
-    background = Color.Black
+    background = Color.Black,
+    surface = Color.DarkGray,
+    onSurface = Color.White
 )
 
 private val LightColorPalette = lightColors(
     primary = Primary500,
     primaryVariant = Primary700,
     secondary = Teal200,
-    background = Color.Red
-
+    background = Color.White,
+    surface = Color.LightGray,
+    onSurface = Color.Black
     /* Other default colors to override
     background = Color.White,
     surface = Color.White,
