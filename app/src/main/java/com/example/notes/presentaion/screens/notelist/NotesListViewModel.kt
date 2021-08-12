@@ -28,12 +28,6 @@ class NotesListViewModel @Inject constructor(
         }
     }
 
-    fun addList(notes: Notes) {
-        viewModelScope.launch {
-            notesRepository.insert(notes)
-        }
-    }
-
     fun deleteList(notes: Notes) {
         viewModelScope.launch {
             notesRepository.deleteData(notes)

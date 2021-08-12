@@ -14,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -22,19 +23,15 @@ import com.example.notes.presentaion.components.NotesListRow
 
 @Composable
 fun NoteListScreen(viewModel: NotesListViewModel = hiltViewModel()) {
-    val noteList = viewModel.noteList
-
     LazyColumn() {
-        items(noteList.value) { note ->
+        items(viewModel.noteList.value) { note ->
             NotesListRow(header = note.header,
                 body = note.body,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp)
-                    .shadow(
-                        5.dp, RoundedCornerShape(10.dp)
-                    )
-                    .background(MaterialTheme.colors.background)
+                    .clip(RoundedCornerShape(5.dp))
+                    .border(1.dp, color = Color.Black, shape = RoundedCornerShape(5.dp))
                     .padding(10.dp),
                 onDelete = {
                     viewModel.deleteList(note)
